@@ -1,0 +1,7 @@
+- id: karma-commit-message
+  name: Karma Commit Message
+  description: Validate commit messages against the Karma Git commit message convention.
+  entry: hooks/git_karma_message
+  language: python
+  pass_filenames: false
+  always_run: true
