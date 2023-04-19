@@ -1,0 +1,28 @@
+name: Run validation
+
+on:
+  push:
+    branches:
+      - main
+      - feature/*
+      - dependabot/*
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Check hooks syntax is valid
+        run: |
+          for file in hooks/*.py; do
+            echo "Processing $file ..."
+            python -m py_compile "$file"
+          done
