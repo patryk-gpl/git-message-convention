@@ -1,7 +1,9 @@
-- id: karma-commit-message
-  name: Karma Commit Message
+- id: verify-git-karma-commit-message
+  name: Enforce Git Karma Commit Message convention
   description: Validate commit messages against the Karma Git commit message convention.
-  entry: hooks/git_karma_message
+  entry: verify-git-karma-commit-message
   language: python
-  pass_filenames: false
   always_run: true
+  verbose: true
+  types: [text]
+  stages: [commit]
