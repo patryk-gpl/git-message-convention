@@ -19,5 +19,5 @@ validate: install ## Validate the pre-commit configuration
 update-hooks:
 	@poetry run pre-commit autoupdate
 
-test:	## Run tests
+test: ## Run tests
 	@poetry run pytest
