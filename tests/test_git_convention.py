@@ -1,6 +1,8 @@
+from unittest.mock import mock_open, patch
+
 import pytest
-from hooks.git_convention import verify_git_karma_message_convention
-from unittest.mock import patch, mock_open
+
+from hooks import git_convention as git
 
 valid_messages = [
     ("feat: added new feature"),
@@ -32,10 +34,18 @@ class TestKarmaGitMessageConvention:
     def test_valid_messages(self, commit_message):
         with patch("hooks.git_convention.open", mock_open(read_data=commit_message)):
             exit_status_ok = 0
-            assert verify_git_karma_message_convention() == exit_status_ok
+            assert git.verify_git_karma_message_convention() == exit_status_ok
 
     @pytest.mark.parametrize("commit_message", invalid_messages)
     def test_wrong_messages(self, commit_message):
         with patch("hooks.git_convention.open", mock_open(read_data=commit_message)):
             exit_status_non_zero = 1
-            assert verify_git_karma_message_convention() == exit_status_non_zero
+            assert git.verify_git_karma_message_convention() == exit_status_non_zero
+
+    def test_message_too_long(self):
+        long_message = (
+            "refactor: extract method into separate function, message is too long"
+        )
+        with patch("hooks.git_convention.open", mock_open(read_data=long_message)):
+            exit_status_non_zero = 1
+            assert git.verify_git_karma_message_convention() == exit_status_non_zero

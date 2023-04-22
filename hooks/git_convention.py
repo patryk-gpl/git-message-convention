@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
-import re
 import os
+import re
 import sys
+
+MAX_COMMIT_MSG_LENGTH = 50
 
 
 def verify_git_karma_message_convention() -> int:
@@ -15,11 +17,10 @@ def verify_git_karma_message_convention() -> int:
     with open(commit_msg_file, "r") as f:
         commit_msg_first_line = f.readline().strip()
 
-    if len(commit_msg_first_line) > 50:
+    if len(commit_msg_first_line) > MAX_COMMIT_MSG_LENGTH:
         print("Commit message too long. Max 50 characters allowed.")
         return 1
 
-    print(f"{commit_msg_first_line=}")
     if re.match(regex, commit_msg_first_line):
         return 0
     print(error_msg)
@@ -29,7 +30,3 @@ def verify_git_karma_message_convention() -> int:
 def main() -> int:
     """Main function."""
     sys.exit(verify_git_karma_message_convention())
-
-
-if __name__ == "__main__":
-    main()
