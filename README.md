@@ -1,8 +1,11 @@
+# pre-commit-hooks
+
+[![Test with poetry](https://github.com/patryk-gpl/pre-commit-hooks/actions/workflows/test.yml/badge.svg)](https://github.com/patryk-gpl/pre-commit-hooks/actions/workflows/test.yml)
+[![SonarCloud analysis](https://github.com/patryk-gpl/pre-commit-hooks/actions/workflows/sonar.yml/badge.svg)](https://github.com/patryk-gpl/pre-commit-hooks/actions/workflows/sonar.yml)
+
 - [pre-commit-hooks](#pre-commit-hooks)
   - [verify-git-karma-commit-message](#verify-git-karma-commit-message)
   - [Local development setup](#local-development-setup)
-
-# pre-commit-hooks
 
 Helper Git hooks to work with [pre-commit](https://pre-commit.com/) framework.
 
