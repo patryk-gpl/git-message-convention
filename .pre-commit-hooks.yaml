@@ -4,6 +4,5 @@
   entry: verify-git-karma-commit-message
   language: python
   always_run: true
-  verbose: true
   types: [text]
   stages: [commit]

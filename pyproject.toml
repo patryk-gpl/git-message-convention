@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hooks"
-version = "0.1.0"
+version = "0.1.1"
 description = "Set of custom pre-commit hooks"
 authors = ["Patryk Kubiak <Patryk.Kubiak@gmail.com>"]
 readme = "README.md"
