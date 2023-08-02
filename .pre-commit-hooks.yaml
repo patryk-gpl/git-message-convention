@@ -6,3 +6,11 @@
   always_run: true
   types: [text]
   stages: [commit]
+- id: check-git-tag-with-poetry
+  name: Ensure there is a Git tag matching poetry version of the package
+  description: Validate commit messages against the Karma Git commit message convention.
+  entry: verify-git-karma-commit-message
+  language: python
+  always_run: true
+  types: [text]
+  stages: [commit]

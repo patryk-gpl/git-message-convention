@@ -1,15 +1,17 @@
 [tool.poetry]
 name = "hooks"
-version = "0.1.1"
+version = "0.2.0"
 description = "Set of custom pre-commit hooks"
 authors = ["Patryk Kubiak <Patryk.Kubiak@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
+toml = "^0.10.2"
 
 [tool.poetry.scripts]
 verify-git-karma-commit-message = "hooks.git_convention:main"
+check-git-tag-with-poetry = "hooks.git_poetry_tag_exists:main"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.3.1"
